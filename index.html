@@ -1,0 +1,956 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Para ti 🏁</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- =========================================
+         PARRILLA DE SALIDA
+    ========================================== -->
+
+    <main id="parrilla" class="pantalla activa">
+
+        <div class="contenido-parrilla">
+
+            <p class="etiqueta">🏁 DÍA DEL HOT WHEELS</p>
+
+            <h1>PARRILLA DE SALIDA</h1>
+
+            <p id="estado">
+                Encendiendo motores...
+            </p>
+
+            <!-- PISTA -->
+
+            <div class="pista">
+
+                <div class="linea-meta"></div>
+
+                <div id="auto" class="auto">
+                    🏎️
+                </div>
+
+            </div>
+
+            <!-- BARRA DE PROGRESO -->
+
+            <div class="progreso-contenedor">
+
+                <div class="progreso">
+                    <div id="barra-progreso"></div>
+                </div>
+
+                <span id="porcentaje">0%</span>
+
+            </div>
+
+            <!-- CARRERA LISTA -->
+
+            <div id="carrera-lista" class="carrera-lista">
+
+                <span class="bandera">🏁</span>
+
+                <h2>CARRERA LISTA</h2>
+
+                <p>
+                    Todo está preparado.
+                </p>
+
+                <button id="iniciar-carrera">
+                    INICIAR CARRERA 🏁
+                </button>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+<!-- =========================================
+     SALIDA
+========================================== -->
+
+<main id="salida" class="pantalla">
+
+    <div class="contenido-salida">
+
+        <p class="numero-vuelta">
+            VUELTA 01
+        </p>
+
+        <div class="linea-salida"></div>
+
+        <div class="frase-con-fondo">
+
+            <div class="fondo-salida"></div>
+
+            <div class="frase-salida">
+
+                <h2>
+                    Tú amas los autos.
+                </h2>
+
+                <h2 class="segunda-linea">
+                    Y yo te amo a ti.
+                </h2>
+
+            </div>
+
+        </div>
+
+        <p class="texto-salida">
+            Así que hice algo para ti
+            con una de las cosas que más te gustan.
+        </p>
+
+        <button id="continuar-vuelta">
+            CONTINUAR 🏁
+        </button>
+
+    </div>
+
+</main>
+
+<!-- =========================================
+     VUELTA 1 — SU PASIÓN
+========================================== -->
+
+<main id="vuelta1" class="pantalla">
+
+    <div class="contenido-vuelta1">
+
+        <p class="etiqueta-vuelta">
+            VUELTA 01
+        </p>
+
+        <h2 class="titulo-vuelta">
+            TU PASIÓN
+        </h2>
+
+        <div class="linea-vuelta"></div>
+
+        <!-- ESCENA 1 -->
+
+        <div class="escena-vuelta activa" id="escena1">
+
+            <div class="foto-vuelta">
+            <img src="./foto1.jpeg" alt="Recuerdo de automovilismo">
+            </div>
+
+            <p class="texto-vuelta">
+                Me enamoré del automovilismo mucho antes
+                de entender lo que significaba para mí.
+            </p>
+
+        </div>
+
+
+        <!-- ESCENA 2 -->
+
+        <div class="escena-vuelta" id="escena2">
+
+            <div class="foto-vuelta">
+            <img src="./dino.jpg" alt="Carrera y automovilismo">
+            </div>
+
+            <p class="texto-vuelta">
+                Al principio eran solo carreras,
+                unos coches, un circuito,
+                un domingo frente a una pantalla...
+            </p>
+
+        </div>
+
+
+        <!-- ESCENA 3 -->
+
+        <div class="escena-vuelta" id="escena3">
+
+            <div class="foto-vuelta">
+            <img src="./nosotros.jpeg" alt="Carrera y automovilismo">
+            </div>
+
+            <p class="texto-vuelta">
+                Pero poco a poco empezaste a ocupar más espacio.
+                Aprendí tus curvas, tus frenadas,
+                tus revoluciones...
+            </p>
+
+        </div>
+
+
+        <div class="contador-vuelta">
+            <span id="numero-escena">01</span>
+            <span>/</span>
+            <span>03</span>
+        </div>
+
+
+        <button id="siguiente-escena">
+            SIGUIENTE →
+        </button>
+
+    </div>
+
+</main>
+
+<!-- =========================================
+     PIT STOP 01 — CARTA
+========================================== -->
+
+<main id="pitstop1" class="pantalla">
+
+    <div class="contenido-pitstop">
+
+        <p class="etiqueta-pit">
+            PIT STOP 01
+        </p>
+
+        <p class="subtitulo-pit">
+            UNA PAUSA ANTES DE VOLVER A LA PISTA
+        </p>
+
+        <div class="carta">
+
+            <div class="encabezado-carta">
+                <span>BOX 01</span>
+                <span>🏁</span>
+            </div>
+
+            <div class="linea-carta"></div>
+
+            <p class="texto-carta">
+                Contigo siempre he querido ir un poco más rápido.
+            </p>
+
+            <p class="texto-carta">
+                Apurar un poco más la frenada, buscar una trazada más limpia,
+                entrar un poco más fuerte en cada curva. Contigo nunca me
+                conformé con una vuelta tranquila; siempre quise otra,
+                y otra, y otra.
+            </p>
+
+            <p class="texto-carta">
+                Porque tienes esa forma de hacer que quiera descubrir
+                hasta dónde podemos llegar.
+            </p>
+
+            <p class="texto-carta">
+                Me haces olvidar el miedo cuando el coche empieza a moverse,
+                me haces confiar cuando ya no queda mucho margen y, quizá
+                por eso, me gusta tanto correr contigo. Porque nunca sé qué
+                va a pasar en la siguiente curva, solo sé que cuando llega
+                el momento no quiero levantar el pie.
+            </p>
+
+            <p class="texto-carta">
+                Pero con el tiempo entendí que correr no es solamente ir rápido.
+            </p>
+
+            <p class="texto-carta">
+                También están esas vueltas que no salen como esperabas.
+                Las curvas que obligan a frenar antes de tiempo, las trazadas
+                que tienes que corregir, los momentos en los que parece que
+                perdiste el ritmo y tienes que volver a encontrarlo.
+            </p>
+
+            <p class="texto-carta">
+                Y sé que tú también has tenido de esas.
+            </p>
+
+            <p class="texto-carta">
+                Sé que no ha sido sencillo llegar hasta donde estás.
+                Que ha habido momentos en los que las cosas no salieron
+                como querías, momentos en los que quizá tocó bajar el ritmo,
+                replantear el camino o simplemente seguir aunque no supieras
+                muy bien qué había después.
+            </p>
+
+            <p class="texto-carta">
+                Pero algo que siempre he visto en ti es que, incluso después
+                de una mala vuelta, vuelves a intentarlo.
+            </p>
+
+            <p class="texto-carta">
+                Vuelves a buscar esa curva.
+            </p>
+
+            <p class="texto-carta">
+                Vuelves a acelerar.
+            </p>
+
+            <p class="texto-carta">
+                Vuelves a querer hacerlo un poco mejor que la vez anterior.
+            </p>
+
+            <p class="texto-carta">
+                Y creo que eso es una de las cosas que más admiro de ti:
+                que no te conformas.
+            </p>
+
+            <p class="texto-carta">
+                No con una vuelta cualquiera.
+                <br>
+                No con hacerlo “suficientemente bien”.
+                <br>
+                No con llegar hasta cierto punto y quedarte ahí.
+            </p>
+
+            <p class="texto-carta">
+                Siempre quieres aprender algo más, mejorar algo más,
+                llegar un poco más lejos.
+            </p>
+
+            <p class="texto-carta">
+                Y quizá por eso me gusta tanto compartir esto contigo.
+                Porque incluso cuando la pista se pone difícil, sigues
+                teniendo esa mirada de quien todavía quiere saber qué hay
+                después de la siguiente curva.
+            </p>
+
+            <p class="texto-carta">
+                Así que si algún día una vuelta no sale como querías,
+                si alguna curva se vuelve demasiado complicada o si alguna
+                vez sientes que has perdido el ritmo, acuérdate de algo:
+            </p>
+
+            <p class="texto-carta destacado-carta">
+                Una vuelta difícil no significa que la carrera haya terminado.
+            </p>
+
+            <p class="texto-carta final-carta">
+                Todavía queda pista.
+                <br>
+                Todavía quedan curvas.
+                <br>
+                Todavía queda mucho por descubrir.
+            </p>
+
+            <p class="texto-carta">
+                Y, mientras tú sigas queriendo correr, yo quiero seguir
+                viendo hasta dónde puedes llegar.
+            </p>
+
+            <div class="firma-carta">
+                <span>FIN DEL PIT STOP</span>
+                <strong>♥</strong>
+            </div>
+
+        </div>
+
+        <button id="continuar-pit">
+            VOLVER A LA PISTA 🏁
+        </button>
+
+    </div>
+
+</main>
+<!-- =========================================
+     VUELTA 2 — RESILIENCIA
+========================================== -->
+
+<main id="vuelta2" class="pantalla">
+
+    <div class="contenido-vuelta2">
+
+        <p class="etiqueta-vuelta2">
+            VUELTA 02
+        </p>
+
+        <h2 class="titulo-vuelta2">
+            VOLVER A LA PISTA
+        </h2>
+
+        <div class="linea-vuelta2"></div>
+
+
+        <!-- ESCENA 1 -->
+
+        <div class="escena-vuelta2 activa" id="escena4">
+
+            <div class="foto-vuelta2">
+                <img src="./pista5.jpg" alt="Pista de carreras">
+            </div>
+
+            <p class="texto-vuelta2">
+                No importa cuántas veces salgas de pista,
+                sino cuántas eres capaz de volver a ella.
+            </p>
+
+        </div>
+
+
+        <!-- ESCENA 2 -->
+
+        <div class="escena-vuelta2" id="escena5">
+
+            <div class="foto-vuelta2">
+                <img src="./pista6.jpg" alt="Carrera de automovilismo">
+            </div>
+
+            <p class="texto-vuelta2">
+                Porque ninguna carrera sale exactamente
+                como la imaginaste.
+            </p>
+
+            <p class="texto-vuelta2 secundario-vuelta2">
+                A veces pierdes la trazada, te pasas de frenada,
+                el coche no responde como esperabas y otras
+                simplemente ocurre algo que no estaba en tus manos.
+            </p>
+
+        </div>
+
+
+        <!-- ESCENA 3 -->
+
+        <div class="escena-vuelta2" id="escena6">
+
+            <div class="foto-vuelta2">
+
+                <div class="foto-vuelta2">
+                <img src="./pista7.jpg" alt="Carrera de automovilismo">
+            </div>
+
+            </div>
+
+            <p class="texto-vuelta2">
+                Pero mientras quede una vuelta,
+                todavía puedes volver a encontrar tu ritmo.
+            </p>
+
+            <p class="texto-vuelta2 secundario-vuelta2">
+                Salirse de pista no significa que la carrera
+                haya terminado.
+            </p>
+
+        </div>
+
+
+        <!-- CONTADOR -->
+
+        <div class="contador-vuelta2">
+
+            <span id="numero-escena2">
+                01
+            </span>
+
+            <span>/</span>
+
+            <span>
+                03
+            </span>
+
+        </div>
+
+
+        <button id="siguiente-escena2">
+            SIGUIENTE →
+        </button>
+
+    </div>
+
+</main>
+
+<!-- =========================================
+     VUELTA 3 — NOSOTROS
+========================================== -->
+
+<main id="vuelta3" class="pantalla">
+
+    <div class="contenido-vuelta3">
+
+        <p class="etiqueta-vuelta3">
+            VUELTA 03
+        </p>
+
+        <h2 class="titulo-vuelta3">
+            CORRER CONTIGO
+        </h2>
+
+        <div class="linea-vuelta3"></div>
+
+
+        <!-- ESCENA 1 -->
+
+        <div class="escena-vuelta3 activa" id="escena7">
+
+            <div class="foto-vuelta3">
+                <img src="./pista8.jpg" alt="Automovilismo">
+            </div>
+
+            <p class="texto-vuelta3">
+                Contigo siempre he querido ir un poco más rápido.
+            </p>
+
+            <p class="texto-vuelta3 secundario-vuelta3">
+                Apurar un poco más la frenada, buscar una trazada
+                más limpia y descubrir hasta dónde podemos llegar.
+            </p>
+
+        </div>
+
+
+        <!-- ESCENA 2 -->
+
+        <div class="escena-vuelta3" id="escena8">
+
+            <div class="foto-vuelta3">
+                <img src="./pista9.jpg" alt="Coche en una curva">
+            </div>
+
+            <p class="texto-vuelta3">
+                Porque contigo nunca se siente como una vuelta cualquiera.
+            </p>
+
+            <p class="texto-vuelta3 secundario-vuelta3">
+                Siempre hay otra curva, otra historia, otra cosa
+                que descubrir juntos.
+            </p>
+
+        </div>
+
+
+        <!-- ESCENA 3 -->
+
+        <div class="escena-vuelta3" id="escena9">
+
+            <div class="foto-vuelta3">
+                <img src="./pista10.jpg" alt="Coche en pista">
+            </div>
+
+            <p class="texto-vuelta3">
+                Y quizá eso es lo que más me gusta de nosotros.
+            </p>
+
+            <p class="texto-vuelta3 secundario-vuelta3">
+                Que todavía no sé qué habrá después de la siguiente curva,
+                pero sé que quiero descubrirlo contigo.
+            </p>
+
+        </div>
+
+
+        <!-- CONTADOR -->
+
+        <div class="contador-vuelta3">
+
+            <span id="numero-escena3">
+                01
+            </span>
+
+            <span>/</span>
+
+            <span>
+                03
+            </span>
+
+        </div>
+
+
+        <button id="siguiente-escena3">
+            SIGUIENTE →
+        </button>
+
+    </div>
+
+</main>
+
+<!-- =========================================
+     PIT STOP 02 — NUESTROS RECUERDOS
+========================================== -->
+
+<main id="pitstop2" class="pantalla">
+
+    <!-- STICKERS DECORATIVOS -->
+
+    <span class="sticker sticker-car-1">🏎️</span>
+    <span class="sticker sticker-car-2">🚗</span>
+    <span class="sticker sticker-car-3">🏁</span>
+
+    <span class="sticker sticker-flower-1">🌸</span>
+    <span class="sticker sticker-flower-2">🌼</span>
+    <span class="sticker sticker-flower-3">🌷</span>
+    <span class="sticker sticker-flower-4">🌺</span>
+
+    <span class="sticker sticker-star-1">✦</span>
+    <span class="sticker sticker-star-2">✧</span>
+    <span class="sticker sticker-heart">♥</span>
+
+
+    <div class="contenido-pitstop2">
+
+        <p class="etiqueta-pit2">
+            PIT STOP 02
+        </p>
+
+        <h2 class="titulo-pit2">
+            NUESTRO CAMINO
+        </h2>
+
+        <p class="subtitulo-pit2">
+            UNA PAUSA PARA MIRAR TODO LO QUE HEMOS RECORRIDO
+        </p>
+
+
+        <!-- =================================
+             COLLAGE
+        ================================== -->
+
+        <div class="collage-recuerdos">
+
+
+            <!-- FOTO 11 -->
+
+            <div class="foto-recuerdo foto-11">
+                <div class="marco-foto">
+                    <img
+                        src="./pista11.jpeg"
+                        alt="Recuerdo de nosotros"
+                    >
+                </div>
+
+                <span class="mini-sticker">🌸</span>
+            </div>
+
+
+            <!-- FOTO 12 -->
+
+            <div class="foto-recuerdo foto-12">
+                <div class="marco-foto">
+                    <img
+                        src="./pista12.jpeg"
+                        alt="Recuerdo de nosotros"
+                    >
+                </div>
+
+                <span class="mini-sticker">🏎️</span>
+            </div>
+
+
+            <!-- FOTO 13 -->
+
+            <div class="foto-recuerdo foto-13">
+                <div class="marco-foto">
+                    <img
+                        src="./pista13.jpeg"
+                        alt="Recuerdo de nosotros"
+                    >
+                </div>
+
+                <span class="mini-sticker">🌼</span>
+            </div>
+
+
+            <!-- FOTO 14 -->
+
+            <div class="foto-recuerdo foto-14">
+                <div class="marco-foto">
+                    <img
+                        src="./pista14.jpeg"
+                        alt="Recuerdo de nosotros"
+                    >
+                </div>
+
+                <span class="mini-sticker">♥</span>
+            </div>
+
+
+            <!-- CENTRO -->
+
+            <div class="mensaje-collage">
+
+                <span>♥</span>
+
+                <p>
+                    TODOS ESTOS
+                    <br>
+                    RECUERDOS
+                </p>
+
+                <small>
+                    SON PARTE DE NUESTRA CARRERA
+                </small>
+
+            </div>
+
+
+            <!-- FOTO 15 -->
+
+            <div class="foto-recuerdo foto-15">
+                <div class="marco-foto">
+                    <img
+                        src="./pista15.jpeg"
+                        alt="Recuerdo de nosotros"
+                    >
+                </div>
+
+                <span class="mini-sticker">🌷</span>
+            </div>
+
+
+            <!-- FOTO 16 -->
+
+            <div class="foto-recuerdo foto-16">
+                <div class="marco-foto">
+                    <img
+                        src="./pista16.jpeg"
+                        alt="Recuerdo de nosotros"
+                    >
+                </div>
+
+                <span class="mini-sticker">🚗</span>
+            </div>
+
+
+            <!-- FOTO 17 -->
+
+            <div class="foto-recuerdo foto-17">
+                <div class="marco-foto">
+                    <img
+                        src="./pista17.jpeg"
+                        alt="Recuerdo de nosotros"
+                    >
+                </div>
+
+                <span class="mini-sticker">🌺</span>
+            </div>
+
+
+            <!-- FOTO 18 -->
+
+            <div class="foto-recuerdo foto-18">
+                <div class="marco-foto">
+                    <img
+                        src="./pista18.jpeg"
+                        alt="Recuerdo de nosotros"
+                    >
+                </div>
+
+                <span class="mini-sticker">🏁</span>
+            </div>
+
+        </div>
+
+
+        <!-- FRASE FINAL -->
+
+        <div class="frase-collage">
+
+            <p>
+                Otra vuelta contigo.
+            </p>
+
+            <span>
+                Y todavía nos quedan muchas.
+            </span>
+
+        </div>
+
+
+        <button id="continuar-pit2">
+            ÚLTIMA VUELTA 🏁
+        </button>
+
+    </div>
+
+</main>
+
+<!-- =========================================
+     ÚLTIMA VUELTA
+========================================= -->
+
+<main id="ultima-vuelta" class="pantalla">
+
+    <div class="contenido-ultima">
+
+        <p class="etiqueta-ultima">
+            ÚLTIMA VUELTA
+        </p>
+
+        <p class="subtitulo-ultima">
+            LA ÚLTIMA PARTE DEL CAMINO
+        </p>
+
+        <div class="carta-ultima">
+
+            <div class="encabezado-ultima">
+                <span>FINAL LAP</span>
+                <span>🏁</span>
+            </div>
+
+            <div class="linea-carta-ultima"></div>
+
+            <p class="texto-ultima">
+                Un día mirarás por el retrovisor y entenderás
+                por qué tuvo que ser así.
+            </p>
+
+            <p class="texto-ultima">
+                Por todas las veces que no salió como esperabas.
+                Por cada abandono. Por cada victoria que parecía
+                demasiado lejos.
+            </p>
+
+            <p class="texto-ultima">
+                Por todas aquellas noches en las que pensaste
+                en abandonar.
+            </p>
+
+            <p class="texto-ultima">
+                No lo sabías, pero cada Gran Premio te estaba
+                llevando a la meta.
+            </p>
+
+            <p class="texto-ultima">
+                Cada rotura. Cada vez que tuviste que volver
+                a empezar.
+            </p>
+
+            <p class="texto-ultima">
+                Porque nadie llega a la bandera a cuadros siendo
+                la misma persona que tomó la salida.
+            </p>
+
+            <p class="texto-ultima destacado-ultima">
+                El camino te cambia.
+                <br>
+                Te rompe.
+                <br>
+                Te obliga a aprender.
+            </p>
+
+            <p class="texto-ultima">
+                Y cuando llegue la victoria entenderás que
+                no llegaste aquí porque nunca abandonaste.
+            </p>
+
+            <p class="texto-ultima destacado-ultima">
+                Llegaste aquí porque cada vez que caíste,
+                volviste a arrancar.
+            </p>
+
+            <div class="firma-ultima">
+
+                <span>
+                    FIN DE LA ÚLTIMA VUELTA
+                </span>
+
+                <strong>♥</strong>
+
+            </div>
+
+        </div>
+
+        <button id="ir-meta">
+            LLEGAR A LA META 🏁
+        </button>
+
+    </div>
+
+</main>
+
+<!-- =========================================
+     LA META
+========================================= -->
+
+<main id="meta" class="pantalla">
+
+    <div class="meta-fondo"></div>
+
+    <div class="contenido-meta">
+
+        <p class="etiqueta-meta">🏁 BANDERA A CUADROS 🏁</p>
+
+        <h1>
+            LLEGASTE A LA META
+        </h1>
+
+        <div class="linea-meta-final"></div>
+
+        <p class="texto-meta">
+            Y como toda carrera necesita algo que
+            recuerde el camino recorrido...
+        </p>
+
+        <div class="regalo">
+
+            <div class="regalo-luz"></div>
+
+            <div class="caja-regalo">
+                <span>🏎️</span>
+            </div>
+
+            <p class="texto-regalo">
+                TU REGALO
+            </p>
+
+        </div>
+
+        <p class="mensaje-meta">
+            Esta vez no pude darte tu carrito en persona,
+            pero quería que tu regalo hiciera todo el camino
+            hasta ti.
+        </p>
+
+        <button id="ir-final">
+            TERMINAR LA CARRERA ♥
+        </button>
+
+    </div>
+
+</main>
+
+<!-- =========================================
+     FINAL
+========================================= -->
+
+<main id="final" class="pantalla">
+
+    <div class="contenido-final">
+
+        <p class="bandera-final">🏁</p>
+
+        <p class="frase-final">
+            Tú amas los autos.
+        </p>
+
+        <p class="frase-final grande">
+            Yo te amo a ti.
+        </p>
+
+        <div class="linea-final"></div>
+
+
+        <p class="texto-final">
+            Porque algunas carreras no se corren para ganar.
+            <br>
+            Se corren para recordar todo lo que vivimos
+            en el camino.
+        </p>
+
+        <p class="cierre-final">
+            Feliz Día del Hot Wheels. 🏎️♥
+        </p>
+
+        <p class="firma-final">
+            — Fin de la carrera —
+        </p>
+
+    </div>
+
+</main>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

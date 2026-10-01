@@ -1,0 +1,3235 @@
+
+/* =========================================
+   CONFIGURACIÓN GENERAL
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    width: 100%;
+    min-height: 100%;
+    background: #080808;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #080808;
+    color: white;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+
+/* =========================================
+   PANTALLAS
+========================================= */
+
+.pantalla {
+    min-height: 100vh;
+    width: 100%;
+    display: none;
+}
+
+.pantalla.activa {
+    display: flex;
+}
+
+
+/* =========================================
+   PARRILLA DE SALIDA
+========================================= */
+
+#parrilla {
+    position: relative;
+    min-height: 100vh;
+
+    align-items: center;
+    justify-content: center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #242424 0%,
+            #0d0d0d 45%,
+            #030303 100%
+        );
+
+    overflow: hidden;
+}
+
+
+/* =========================================
+   LÍNEAS DE VELOCIDAD
+========================================= */
+
+#parrilla::before {
+    content: "";
+
+    position: absolute;
+
+    width: 140%;
+    height: 2px;
+
+    background: rgba(255, 255, 255, 0.08);
+
+    top: 25%;
+    left: -20%;
+
+    box-shadow:
+        0 80px rgba(255,255,255,0.05),
+        0 160px rgba(255,255,255,0.04),
+        0 240px rgba(255,255,255,0.03);
+}
+
+
+/* =========================================
+   CONTENIDO
+========================================= */
+
+.contenido-parrilla {
+    position: relative;
+    z-index: 2;
+
+    width: min(900px, 90%);
+
+    text-align: center;
+}
+
+
+/* =========================================
+   TEXTOS
+========================================= */
+
+.etiqueta {
+    font-size: 0.75rem;
+    letter-spacing: 4px;
+    opacity: 0.6;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: clamp(2.3rem, 7vw, 5rem);
+    letter-spacing: 8px;
+    margin-bottom: 18px;
+}
+
+#estado {
+    min-height: 25px;
+
+    font-size: 1rem;
+
+    color: #cfcfcf;
+
+    letter-spacing: 1px;
+
+    transition: opacity 0.3s ease;
+}
+
+
+/* =========================================
+   PISTA
+========================================= */
+
+.pista {
+    position: relative;
+
+    width: 100%;
+
+    height: 100px;
+
+    margin: 50px 0 25px;
+
+    border-top:
+        2px solid
+        rgba(255,255,255,0.15);
+
+    border-bottom:
+        2px solid
+        rgba(255,255,255,0.15);
+
+    display: flex;
+
+    align-items: center;
+}
+
+
+/* =========================================
+   LÍNEA DE META
+========================================= */
+
+.linea-meta {
+    position: absolute;
+
+    right: 0;
+
+    width: 14px;
+
+    height: 100%;
+
+    background:
+        repeating-linear-gradient(
+            0deg,
+            white 0px,
+            white 12px,
+            black 12px,
+            black 24px
+        );
+}
+
+
+/* =========================================
+   AUTO
+========================================= */
+
+.auto {
+    position: absolute;
+
+    left: 0;
+
+    font-size: 3rem;
+
+    transform:
+        translateX(0)
+        scaleX(-1);
+
+    transition:
+        transform 0.15s linear;
+
+    filter:
+        drop-shadow(
+            0 8px 10px
+            rgba(0,0,0,0.7)
+        );
+}
+
+
+/* =========================================
+   BARRA DE PROGRESO
+========================================= */
+
+.progreso-contenedor {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    width: 100%;
+}
+
+.progreso {
+    flex: 1;
+
+    height: 7px;
+
+    background: #252525;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+}
+
+#barra-progreso {
+    width: 0%;
+
+    height: 100%;
+
+    background: white;
+
+    border-radius: 20px;
+
+    transition:
+        width 0.15s linear;
+}
+
+#porcentaje {
+    width: 45px;
+
+    text-align: right;
+
+    font-family: monospace;
+
+    font-size: 0.9rem;
+}
+
+
+/* =========================================
+   CARRERA LISTA
+========================================= */
+
+.carrera-lista {
+    opacity: 0;
+
+    transform: translateY(20px);
+
+    pointer-events: none;
+
+    margin-top: 45px;
+
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+}
+
+.carrera-lista.visible {
+    opacity: 1;
+
+    transform: translateY(0);
+
+    pointer-events: auto;
+}
+
+.bandera {
+    display: block;
+
+    font-size: 2rem;
+
+    margin-bottom: 10px;
+}
+
+.carrera-lista h2 {
+    font-size:
+        clamp(1.7rem, 5vw, 3rem);
+
+    letter-spacing: 6px;
+
+    margin-bottom: 10px;
+}
+
+.carrera-lista p {
+    color: #aaa;
+
+    margin-bottom: 25px;
+}
+
+
+/* =========================================
+   BOTÓN
+========================================= */
+
+#iniciar-carrera {
+    border:
+        1px solid
+        rgba(255,255,255,0.5);
+
+    background: white;
+
+    color: black;
+
+    padding: 15px 28px;
+
+    font-size: 0.85rem;
+
+    font-weight: bold;
+
+    letter-spacing: 2px;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease;
+}
+
+#iniciar-carrera:hover {
+    transform: scale(1.05);
+
+    background: #ddd;
+}
+
+
+/* =========================================
+   CELULAR - PARRILLA
+========================================= */
+
+@media (max-width: 600px) {
+
+    h1 {
+        letter-spacing: 4px;
+    }
+
+    .pista {
+        margin-top: 35px;
+    }
+
+    .auto {
+        font-size: 2.3rem;
+    }
+
+    .carrera-lista h2 {
+        letter-spacing: 3px;
+    }
+}
+
+
+/* =========================================
+   SALIDA
+========================================= */
+
+#salida {
+    position: relative;
+
+    min-height: 100vh;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #1c1c1c 0%,
+            #090909 55%,
+            #020202 100%
+        );
+
+    overflow: hidden;
+}
+
+
+/* =========================================
+   CONTENIDO DE SALIDA
+========================================= */
+
+.contenido-salida {
+    position: relative;
+
+    z-index: 5;
+
+    width: min(850px, 90%);
+
+    animation:
+        aparecerSalida 1.5s ease forwards;
+}
+
+
+/* =========================================
+   NÚMERO DE VUELTA
+========================================= */
+
+.numero-vuelta {
+    font-size: 0.75rem;
+
+    letter-spacing: 5px;
+
+    color: #999;
+
+    margin-bottom: 35px;
+}
+
+
+/* =========================================
+   LÍNEA
+========================================= */
+
+.linea-salida {
+    width: 70px;
+
+    height: 2px;
+
+    background: white;
+
+    margin: 0 auto 40px;
+}
+
+
+/* =========================================
+   CONTENEDOR DE LA FRASE
+========================================= */
+
+.frase-con-fondo {
+    position: relative;
+
+    width: 100%;
+
+    margin: 0 auto;
+
+    padding: 80px 30px;
+
+    overflow: hidden;
+
+    border-radius: 6px;
+}
+
+
+/* =========================================
+   IMAGEN DE FONDO
+========================================= */
+
+.fondo-salida {
+    position: absolute;
+
+    inset: 0;
+
+    background-image:
+        url("./pista1.jpg");
+
+    background-size: cover;
+
+    background-position: center;
+
+    filter: blur(1.5px);
+
+    transform: scale(1.04);
+
+    opacity: 0.70;
+
+    z-index: 0;
+}
+
+
+/* =========================================
+   CAPA OSCURA
+========================================= */
+
+.frase-con-fondo::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        rgba(0, 0, 0, 0.20);
+
+    z-index: 1;
+}
+
+
+/* =========================================
+   FRASE PRINCIPAL
+========================================= */
+
+.frase-salida {
+    position: relative;
+
+    z-index: 2;
+}
+
+.contenido-salida h2 {
+    font-size:
+        clamp(2.5rem, 7vw, 5.5rem);
+
+    font-weight: 500;
+
+    letter-spacing: -2px;
+
+    line-height: 1.05;
+
+    opacity: 0;
+
+    animation:
+        aparecerTexto 1.2s ease forwards;
+}
+
+.contenido-salida .segunda-linea {
+    animation-delay: 0.7s;
+
+    font-weight: 700;
+}
+
+
+/* =========================================
+   TEXTO SECUNDARIO
+========================================= */
+
+.texto-salida {
+    max-width: 500px;
+
+    margin: 40px auto 0;
+
+    color: #aaa;
+
+    font-size: 1rem;
+
+    line-height: 1.7;
+
+    opacity: 0;
+
+    animation:
+        aparecerTexto 1s ease forwards;
+
+    animation-delay: 1.5s;
+}
+
+
+/* =========================================
+   BOTÓN CONTINUAR
+========================================= */
+
+#continuar-vuelta {
+    margin-top: 40px;
+
+    padding: 14px 28px;
+
+    background: transparent;
+
+    color: white;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.5);
+
+    font-size: 0.75rem;
+
+    letter-spacing: 3px;
+
+    cursor: pointer;
+
+    opacity: 0;
+
+    animation:
+        aparecerTexto 1s ease forwards;
+
+    animation-delay: 2.2s;
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+
+#continuar-vuelta:hover {
+    background: white;
+
+    color: black;
+
+    transform: translateY(-3px);
+}
+
+
+/* =========================================
+   ANIMACIONES
+========================================= */
+
+@keyframes aparecerSalida {
+
+    from {
+        opacity: 0;
+
+        transform: scale(0.96);
+    }
+
+    to {
+        opacity: 1;
+
+        transform: scale(1);
+    }
+}
+
+@keyframes aparecerTexto {
+
+    from {
+        opacity: 0;
+
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================================
+   CELULAR - SALIDA
+========================================= */
+
+@media (max-width: 600px) {
+
+    .contenido-salida h2 {
+        font-size:
+            clamp(2.2rem, 11vw, 4rem);
+    }
+
+    .texto-salida {
+        font-size: 0.9rem;
+    }
+
+    .frase-con-fondo {
+        padding: 60px 20px;
+    }
+}
+
+
+/* =========================================
+   VUELTA 1
+========================================= */
+
+#vuelta1 {
+    position: relative;
+
+    min-height: 100vh;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #1a1a1a 0%,
+            #080808 60%,
+            #020202 100%
+        );
+
+    overflow: hidden;
+}
+
+.contenido-vuelta1 {
+    width: min(900px, 90%);
+
+    position: relative;
+
+    z-index: 2;
+}
+
+.etiqueta-vuelta {
+    font-size: 0.7rem;
+
+    letter-spacing: 5px;
+
+    color: #888;
+
+    margin-bottom: 12px;
+}
+
+.titulo-vuelta {
+    font-size:
+        clamp(2rem, 5vw, 4rem);
+
+    letter-spacing: 8px;
+
+    font-weight: 500;
+
+    margin-bottom: 20px;
+}
+
+.linea-vuelta {
+    width: 50px;
+
+    height: 2px;
+
+    background: white;
+
+    margin: 0 auto 35px;
+}
+
+
+/* =========================================
+   ESCENAS
+========================================= */
+
+.escena-vuelta {
+    display: none;
+
+    animation:
+        aparecerEscena 0.8s ease forwards;
+}
+
+.escena-vuelta.activa {
+    display: block;
+}
+
+
+/* =========================================
+   FOTO
+========================================= */
+
+.foto-vuelta {
+    width: min(650px, 100%);
+
+    height: 300px;
+
+    margin: 0 auto 30px;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.12);
+
+    background:
+        linear-gradient(
+            135deg,
+            #151515,
+            #252525
+        );
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    color: #666;
+
+    font-size: 0.7rem;
+
+    letter-spacing: 4px;
+
+    overflow: hidden;
+}
+
+.foto-vuelta img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+
+/* =========================================
+   TEXTO
+========================================= */
+
+.texto-vuelta {
+    width: min(650px, 100%);
+
+    margin: 0 auto;
+
+    color: #ddd;
+
+    font-size:
+        clamp(1rem, 2vw, 1.2rem);
+
+    line-height: 1.8;
+}
+
+
+/* =========================================
+   CONTADOR
+========================================= */
+
+.contador-vuelta {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    margin-top: 30px;
+
+    color: #777;
+
+    font-family: monospace;
+
+    font-size: 0.8rem;
+
+    letter-spacing: 2px;
+}
+
+#numero-escena {
+    color: white;
+}
+
+
+/* =========================================
+   BOTÓN
+========================================= */
+
+#siguiente-escena {
+    margin-top: 25px;
+
+    padding: 13px 25px;
+
+    background: transparent;
+
+    color: white;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.4);
+
+    font-size: 0.7rem;
+
+    letter-spacing: 3px;
+
+    cursor: pointer;
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+
+#siguiente-escena:hover {
+    background: white;
+
+    color: black;
+
+    transform: translateY(-3px);
+}
+
+
+/* =========================================
+   ANIMACIÓN
+========================================= */
+
+@keyframes aparecerEscena {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateX(30px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateX(0);
+    }
+}
+
+
+/* =========================================
+   CELULAR
+========================================= */
+
+@media (max-width: 600px) {
+
+    .titulo-vuelta {
+        letter-spacing: 4px;
+    }
+
+    .foto-vuelta {
+        height: 220px;
+    }
+
+    .texto-vuelta {
+        font-size: 0.95rem;
+    }
+}
+
+
+/* =========================================
+   PIT STOP 01 — CARTA
+========================================= */
+
+#pitstop1 {
+    position: relative;
+
+    width: 100%;
+
+    min-height: 100vh;
+
+    align-items: flex-start;
+
+    justify-content: center;
+
+    text-align: center;
+
+    overflow-y: auto;
+
+    overflow-x: hidden;
+
+    padding: 60px 0 80px;
+
+    background-image:
+        linear-gradient(
+            rgba(0, 0, 0, 0.58),
+            rgba(0, 0, 0, 0.68)
+        ),
+        url("./pista2.jpg");
+
+    background-size: cover;
+
+    background-position: center;
+
+    background-attachment: fixed;
+}
+
+.contenido-pitstop {
+    position: relative;
+
+    z-index: 2;
+
+    width: min(760px, 90%);
+
+    margin: 0 auto;
+
+    animation:
+        aparecerPit 1s ease forwards;
+}
+
+.etiqueta-pit {
+    font-size: 0.7rem;
+
+    letter-spacing: 5px;
+
+    color: white;
+
+    margin-bottom: 8px;
+
+    text-shadow:
+        0 2px 8px
+        rgba(0,0,0,0.8);
+}
+
+.subtitulo-pit {
+    color:
+        rgba(255,255,255,0.65);
+
+    font-size: 0.65rem;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 30px;
+
+    text-shadow:
+        0 2px 8px
+        rgba(0,0,0,0.8);
+}
+
+
+/* =========================================
+   CARTA
+========================================= */
+
+.carta {
+    width: 100%;
+
+    background: #eeeeea;
+
+    color: #151515;
+
+    padding: 40px 50px;
+
+    text-align: left;
+
+    box-shadow:
+        0 25px 70px
+        rgba(0,0,0,0.65);
+
+    animation:
+        aparecerCarta 1.2s ease forwards;
+}
+
+.encabezado-carta {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    font-family: monospace;
+
+    font-size: 0.7rem;
+
+    letter-spacing: 2px;
+
+    color: #777;
+}
+
+.linea-carta {
+    width: 100%;
+
+    height: 1px;
+
+    background: #ccc;
+
+    margin: 20px 0 30px;
+}
+
+.texto-carta {
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 1rem;
+
+    line-height: 1.9;
+
+    margin-bottom: 22px;
+}
+
+.texto-carta:first-of-type {
+    font-size: 1.35rem;
+
+    line-height: 1.5;
+}
+
+.destacado-carta {
+    font-size: 1.3rem;
+
+    font-weight: bold;
+
+    text-align: center;
+
+    margin-top: 35px;
+
+    margin-bottom: 30px;
+}
+
+.final-carta {
+    text-align: center;
+
+    font-size: 1.15rem;
+
+    line-height: 2;
+
+    margin-bottom: 30px;
+}
+
+.firma-carta {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-top: 35px;
+
+    padding-top: 18px;
+
+    border-top:
+        1px solid #ccc;
+
+    font-family: monospace;
+
+    font-size: 0.65rem;
+
+    letter-spacing: 2px;
+
+    color: #777;
+}
+
+.firma-carta strong {
+    font-size: 1.2rem;
+
+    color: #222;
+}
+
+
+/* =========================================
+   BOTÓN
+========================================= */
+
+#continuar-pit {
+    margin-top: 30px;
+
+    padding: 14px 28px;
+
+    background:
+        rgba(0,0,0,0.25);
+
+    color: white;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.6);
+
+    font-size: 0.7rem;
+
+    letter-spacing: 3px;
+
+    cursor: pointer;
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease,
+        transform 0.3s ease;
+
+    text-shadow:
+        0 2px 5px
+        rgba(0,0,0,0.7);
+}
+
+#continuar-pit:hover {
+    background: white;
+
+    color: black;
+
+    transform: translateY(-3px);
+}
+
+
+/* =========================================
+   ANIMACIONES PIT STOP 01
+========================================= */
+
+@keyframes aparecerPit {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+@keyframes aparecerCarta {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(20px)
+            scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+/* =========================================
+   CELULAR PIT STOP 01
+========================================= */
+
+@media (max-width: 600px) {
+
+    #pitstop1 {
+        padding:
+            35px 0 60px;
+
+        background-attachment: scroll;
+    }
+
+    .contenido-pitstop {
+        width: 92%;
+    }
+
+    .carta {
+        padding:
+            28px 22px;
+    }
+
+    .texto-carta {
+        font-size: 0.9rem;
+
+        line-height: 1.8;
+    }
+
+    .texto-carta:first-of-type {
+        font-size: 1.15rem;
+    }
+
+    .destacado-carta {
+        font-size: 1.1rem;
+    }
+
+    .final-carta {
+        font-size: 1rem;
+    }
+}
+
+
+/* =========================================
+   VUELTA 2 — RESILIENCIA
+========================================= */
+
+#vuelta2 {
+    position: relative;
+
+    min-height: 100vh;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #1a1a1a 0%,
+            #080808 60%,
+            #020202 100%
+        );
+
+    overflow: hidden;
+}
+
+.contenido-vuelta2 {
+    width: min(900px, 90%);
+
+    position: relative;
+
+    z-index: 2;
+}
+
+.etiqueta-vuelta2 {
+    font-size: 0.7rem;
+
+    letter-spacing: 5px;
+
+    color: #888;
+
+    margin-bottom: 12px;
+}
+
+.titulo-vuelta2 {
+    font-size:
+        clamp(2rem, 5vw, 4rem);
+
+    letter-spacing: 6px;
+
+    font-weight: 500;
+
+    margin-bottom: 20px;
+}
+
+.linea-vuelta2 {
+    width: 50px;
+
+    height: 2px;
+
+    background: white;
+
+    margin: 0 auto 35px;
+}
+
+
+/* =========================================
+   ESCENAS
+========================================= */
+
+.escena-vuelta2 {
+    display: none;
+
+    animation:
+        aparecerEscena2 0.8s ease forwards;
+}
+
+.escena-vuelta2.activa {
+    display: block;
+}
+
+
+/* =========================================
+   FOTOS
+========================================= */
+
+.foto-vuelta2 {
+    width: min(650px, 100%);
+
+    height: 300px;
+
+    margin: 0 auto 30px;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.12);
+
+    background:
+        linear-gradient(
+            135deg,
+            #151515,
+            #252525
+        );
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    color: #666;
+
+    font-size: 0.7rem;
+
+    letter-spacing: 4px;
+
+    overflow: hidden;
+}
+
+.foto-vuelta2 img {
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+
+/* =========================================
+   TEXTOS
+========================================= */
+
+.texto-vuelta2 {
+    width: min(650px, 100%);
+
+    margin: 0 auto;
+
+    color: #ddd;
+
+    font-size:
+        clamp(1rem, 2vw, 1.2rem);
+
+    line-height: 1.8;
+}
+
+.secundario-vuelta2 {
+    margin-top: 20px;
+
+    color: #999;
+
+    font-size: 0.95rem;
+}
+
+
+/* =========================================
+   CONTADOR
+========================================= */
+
+.contador-vuelta2 {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    margin-top: 30px;
+
+    color: #777;
+
+    font-family: monospace;
+
+    font-size: 0.8rem;
+
+    letter-spacing: 2px;
+}
+
+#numero-escena2 {
+    color: white;
+}
+
+
+/* =========================================
+   BOTÓN
+========================================= */
+
+#siguiente-escena2 {
+    margin-top: 25px;
+
+    padding: 13px 25px;
+
+    background: transparent;
+
+    color: white;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.4);
+
+    font-size: 0.7rem;
+
+    letter-spacing: 3px;
+
+    cursor: pointer;
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+
+#siguiente-escena2:hover {
+    background: white;
+
+    color: black;
+
+    transform: translateY(-3px);
+}
+
+
+/* =========================================
+   ANIMACIÓN
+========================================= */
+
+@keyframes aparecerEscena2 {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateX(30px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateX(0);
+    }
+}
+
+
+/* =========================================
+   CELULAR
+========================================= */
+
+@media (max-width: 600px) {
+
+    .titulo-vuelta2 {
+        letter-spacing: 4px;
+    }
+
+    .foto-vuelta2 {
+        height: 220px;
+    }
+
+    .texto-vuelta2 {
+        font-size: 0.95rem;
+    }
+}
+
+
+/* =========================================
+   PIT STOP 02 — NUESTRO CAMINO
+========================================= */
+
+#pitstop2 {
+    position: relative;
+
+    width: 100%;
+
+    min-height: 100vh;
+
+    align-items: flex-start;
+
+    justify-content: center;
+
+    text-align: center;
+
+    overflow-y: auto;
+
+    overflow-x: hidden;
+
+    padding: 70px 30px 100px;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(255,255,255,0.04),
+            transparent 60%
+        );
+}
+
+.contenido-pitstop2 {
+    position: relative;
+
+    z-index: 5;
+
+    width: min(1000px, 100%);
+
+    margin: 0 auto;
+
+    animation:
+        aparecerPit 1s ease forwards;
+}
+
+.etiqueta-pit2 {
+    margin-bottom: 8px;
+
+    color: #777;
+
+    font-size: 0.7rem;
+
+    letter-spacing: 5px;
+
+    font-weight: 700;
+}
+
+.titulo-pit2 {
+    margin: 0;
+
+    color: white;
+
+    font-size:
+        clamp(2rem, 5vw, 3.5rem);
+
+    letter-spacing: 8px;
+
+    font-weight: 800;
+}
+
+.subtitulo-pit2 {
+    margin: 12px 0 50px;
+
+    color: #777;
+
+    font-size: 0.65rem;
+
+    letter-spacing: 3px;
+}
+
+
+/* =========================================
+   COLLAGE
+========================================= */
+
+.collage-recuerdos {
+    width: min(900px, 100%);
+
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    grid-template-rows:
+        auto
+        auto
+        auto
+        auto
+        auto;
+
+    column-gap: 70px;
+
+    row-gap: 55px;
+
+    align-items: center;
+
+    justify-items: center;
+}
+
+
+/* =========================================
+   FOTOS
+========================================= */
+
+.foto-recuerdo {
+    position: relative;
+
+    width: 100%;
+
+    max-width: 300px;
+
+    padding: 12px;
+
+    background: #f4f1e8;
+
+    box-shadow:
+        0 15px 35px
+        rgba(0,0,0,0.35);
+
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease;
+
+    z-index: 2;
+}
+
+.foto-recuerdo:hover {
+    transform:
+        rotate(0deg)
+        scale(1.04)
+        translateY(-5px);
+
+    box-shadow:
+        0 20px 45px
+        rgba(0,0,0,0.5);
+
+    z-index: 20;
+}
+
+
+/* =========================================
+   IMÁGENES
+========================================= */
+
+.marco-foto {
+    width: 100%;
+
+    aspect-ratio: 4 / 3;
+
+    overflow: hidden;
+
+    background: #111;
+}
+
+.marco-foto img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+
+/* =========================================
+   POSICIONES
+========================================= */
+
+.foto-11 {
+    grid-column: 1;
+    grid-row: 1;
+
+    transform:
+        rotate(-5deg);
+}
+
+.foto-12 {
+    grid-column: 2;
+    grid-row: 1;
+
+    transform:
+        rotate(5deg);
+}
+
+.foto-13 {
+    grid-column: 1;
+    grid-row: 2;
+
+    transform:
+        rotate(4deg);
+}
+
+.foto-14 {
+    grid-column: 2;
+    grid-row: 2;
+
+    transform:
+        rotate(-4deg);
+}
+
+.foto-15 {
+    grid-column: 1;
+    grid-row: 4;
+
+    transform:
+        rotate(5deg);
+}
+
+.foto-16 {
+    grid-column: 2;
+    grid-row: 4;
+
+    transform:
+        rotate(-5deg);
+}
+
+.foto-17 {
+    grid-column: 1;
+    grid-row: 5;
+
+    transform:
+        rotate(-4deg);
+}
+
+.foto-18 {
+    grid-column: 2;
+    grid-row: 5;
+
+    transform:
+        rotate(4deg);
+}
+
+
+/* =========================================
+   MENSAJE CENTRAL
+========================================= */
+
+.mensaje-collage {
+    grid-column: 1 / 3;
+
+    grid-row: 3;
+
+    position: relative;
+
+    width: min(320px, 80%);
+
+    padding: 32px 25px;
+
+    margin: 0 auto;
+
+    background:
+        rgba(15,15,15,0.96);
+
+    border:
+        1px solid
+        rgba(255,255,255,0.12);
+
+    box-shadow:
+        0 20px 45px
+        rgba(0,0,0,0.45);
+
+    z-index: 8;
+}
+
+.mensaje-collage span {
+    display: block;
+
+    margin-bottom: 12px;
+
+    color: white;
+
+    font-size: 1.5rem;
+}
+
+.mensaje-collage p {
+    margin: 0 0 12px;
+
+    color: white;
+
+    font-size: 1.2rem;
+
+    line-height: 1.5;
+
+    font-weight: 700;
+
+    letter-spacing: 4px;
+}
+
+.mensaje-collage small {
+    display: block;
+
+    color: #888;
+
+    font-size: 0.55rem;
+
+    letter-spacing: 2px;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================
+   STICKERS
+========================================= */
+
+.sticker {
+    position: absolute;
+
+    z-index: 15;
+
+    pointer-events: none;
+
+    user-select: none;
+}
+
+.sticker-car-1 {
+    top: 12%;
+    left: 5%;
+
+    font-size: 2.5rem;
+
+    transform:
+        rotate(-12deg);
+}
+
+.sticker-car-2 {
+    bottom: 15%;
+    right: 5%;
+
+    font-size: 2.3rem;
+
+    transform:
+        rotate(10deg);
+}
+
+.sticker-car-3 {
+    top: 22%;
+    right: 3%;
+
+    font-size: 2rem;
+
+    transform:
+        rotate(15deg);
+}
+
+.sticker-flower-1 {
+    top: 30%;
+    left: 3%;
+
+    font-size: 1.8rem;
+
+    transform:
+        rotate(-15deg);
+}
+
+.sticker-flower-2 {
+    top: 48%;
+    right: 3%;
+
+    font-size: 1.7rem;
+
+    transform:
+        rotate(12deg);
+}
+
+.sticker-flower-3 {
+    bottom: 25%;
+    left: 5%;
+
+    font-size: 1.9rem;
+
+    transform:
+        rotate(-10deg);
+}
+
+.sticker-flower-4 {
+    bottom: 8%;
+    right: 12%;
+
+    font-size: 1.8rem;
+
+    transform:
+        rotate(8deg);
+}
+
+.sticker-star-1 {
+    top: 8%;
+    right: 18%;
+
+    font-size: 1.5rem;
+}
+
+.sticker-star-2 {
+    bottom: 28%;
+    left: 18%;
+
+    font-size: 1.3rem;
+}
+
+.sticker-heart {
+    display: none;
+}
+
+
+/* =========================================
+   FRASE FINAL
+========================================= */
+
+.frase-collage {
+    margin:
+        55px auto 35px;
+
+    text-align: center;
+}
+
+.frase-collage p {
+    margin-bottom: 8px;
+
+    color: white;
+
+    font-size: 1.4rem;
+
+    font-weight: 700;
+}
+
+.frase-collage span {
+    color: #777;
+
+    font-size: 0.7rem;
+
+    letter-spacing: 3px;
+}
+
+
+/* =========================================
+   BOTÓN FINAL
+========================================= */
+
+#continuar-pit2 {
+    display: block;
+
+    margin: 0 auto;
+
+    padding: 14px 28px;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.25);
+
+    background: transparent;
+
+    color: white;
+
+    font-size: 0.7rem;
+
+    font-weight: 700;
+
+    letter-spacing: 3px;
+
+    cursor: pointer;
+
+    transition:
+        background 0.3s ease,
+        transform 0.3s ease;
+}
+
+#continuar-pit2:hover {
+    background:
+        rgba(255,255,255,0.08);
+
+    transform:
+        translateY(-3px);
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 850px) {
+
+    #pitstop2 {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .collage-recuerdos {
+        column-gap: 35px;
+        row-gap: 45px;
+    }
+
+    .foto-recuerdo {
+        max-width: 260px;
+    }
+
+    .mensaje-collage {
+        width: 260px;
+    }
+}
+
+
+/* =========================================
+   CELULAR
+========================================= */
+
+@media (max-width: 600px) {
+
+    #pitstop2 {
+        padding:
+            55px
+            18px
+            80px;
+
+        height: 100vh;
+
+        min-height: 0;
+    }
+
+    .titulo-pit2 {
+        font-size: 2rem;
+
+        letter-spacing: 5px;
+    }
+
+    .subtitulo-pit2 {
+        font-size: 0.55rem;
+
+        line-height: 1.6;
+
+        margin-bottom: 35px;
+    }
+
+    .collage-recuerdos {
+        display: flex;
+
+        flex-direction: column;
+
+        gap: 35px;
+
+        width: 100%;
+    }
+
+    .foto-recuerdo {
+        width: 85%;
+
+        max-width: 300px;
+    }
+
+    .foto-11 {
+        align-self: flex-start;
+
+        transform:
+            rotate(-5deg);
+    }
+
+    .foto-12 {
+        align-self: flex-end;
+
+        transform:
+            rotate(5deg);
+    }
+
+    .foto-13 {
+        align-self: flex-start;
+
+        transform:
+            rotate(4deg);
+    }
+
+    .foto-14 {
+        align-self: flex-end;
+
+        transform:
+            rotate(-4deg);
+    }
+
+    .mensaje-collage {
+        order: 5;
+
+        width: 80%;
+
+        margin: 5px auto;
+
+        padding:
+            25px 18px;
+    }
+
+    .foto-15 {
+        align-self: flex-start;
+
+        transform:
+            rotate(5deg);
+    }
+
+    .foto-16 {
+        align-self: flex-end;
+
+        transform:
+            rotate(-5deg);
+    }
+
+    .foto-17 {
+        align-self: flex-start;
+
+        transform:
+            rotate(-4deg);
+    }
+
+    .foto-18 {
+        align-self: flex-end;
+
+        transform:
+            rotate(4deg);
+    }
+
+    .sticker-car-1,
+    .sticker-car-2,
+    .sticker-car-3 {
+        font-size: 1.6rem;
+    }
+
+    .sticker-flower-1,
+    .sticker-flower-2,
+    .sticker-flower-3,
+    .sticker-flower-4 {
+        font-size: 1.3rem;
+    }
+
+    .sticker-star-1,
+    .sticker-star-2 {
+        font-size: 1rem;
+    }
+
+    .frase-collage p {
+        font-size: 1.15rem;
+    }
+
+    .frase-collage span {
+        font-size: 0.55rem;
+
+        letter-spacing: 2px;
+    }
+}
+
+
+/* =========================================
+   VUELTA 3 — CORRER CONTIGO
+========================================= */
+
+#vuelta3 {
+    position: relative;
+
+    min-height: 100vh;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #1a1a1a 0%,
+            #080808 60%,
+            #020202 100%
+        );
+
+    overflow: hidden;
+}
+
+.contenido-vuelta3 {
+    width: min(900px, 90%);
+
+    position: relative;
+
+    z-index: 2;
+}
+
+.etiqueta-vuelta3 {
+    font-size: 0.7rem;
+
+    letter-spacing: 5px;
+
+    color: #888;
+
+    margin-bottom: 12px;
+}
+
+.titulo-vuelta3 {
+    font-size:
+        clamp(2rem, 5vw, 4rem);
+
+    letter-spacing: 7px;
+
+    font-weight: 500;
+
+    margin-bottom: 20px;
+}
+
+.linea-vuelta3 {
+    width: 50px;
+
+    height: 2px;
+
+    background: white;
+
+    margin: 0 auto 35px;
+}
+
+.escena-vuelta3 {
+    display: none;
+
+    animation:
+        aparecerEscena3 0.8s ease forwards;
+}
+
+.escena-vuelta3.activa {
+    display: block;
+}
+
+.foto-vuelta3 {
+    width: min(650px, 100%);
+
+    height: 300px;
+
+    margin: 0 auto 30px;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.12);
+
+    background:
+        linear-gradient(
+            135deg,
+            #151515,
+            #252525
+        );
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    color: #666;
+
+    font-size: 0.7rem;
+
+    letter-spacing: 4px;
+
+    overflow: hidden;
+}
+
+.foto-vuelta3 img {
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+.texto-vuelta3 {
+    width: min(650px, 100%);
+
+    margin: 0 auto;
+
+    color: #ddd;
+
+    font-size:
+        clamp(1rem, 2vw, 1.2rem);
+
+    line-height: 1.8;
+}
+
+.secundario-vuelta3 {
+    margin-top: 20px;
+
+    color: #999;
+
+    font-size: 0.95rem;
+}
+
+.contador-vuelta3 {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    margin-top: 30px;
+
+    color: #777;
+
+    font-family: monospace;
+
+    font-size: 0.8rem;
+
+    letter-spacing: 2px;
+}
+
+#numero-escena3 {
+    color: white;
+}
+
+#siguiente-escena3 {
+    margin-top: 25px;
+
+    padding: 13px 25px;
+
+    background: transparent;
+
+    color: white;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.4);
+
+    font-size: 0.7rem;
+
+    letter-spacing: 3px;
+
+    cursor: pointer;
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+
+#siguiente-escena3:hover {
+    background: white;
+
+    color: black;
+
+    transform: translateY(-3px);
+}
+
+@keyframes aparecerEscena3 {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateX(30px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateX(0);
+    }
+}
+
+@media (max-width: 600px) {
+
+    .titulo-vuelta3 {
+        letter-spacing: 4px;
+    }
+
+    .foto-vuelta3 {
+        height: 220px;
+    }
+
+    .texto-vuelta3 {
+        font-size: 0.95rem;
+    }
+}
+
+
+/* =========================================
+   ÚLTIMA VUELTA — CARTA FINAL
+========================================= */
+
+#ultima-vuelta {
+    position: relative;
+
+    width: 100%;
+
+    min-height: 100vh;
+
+    align-items: flex-start;
+
+    justify-content: center;
+
+    text-align: center;
+
+    overflow-y: auto;
+
+    overflow-x: hidden;
+
+    padding: 70px 0 100px;
+
+    /* MISMO TONO GENERAL DE LA CARTA */
+    background:
+        radial-gradient(
+            circle at center,
+            #202020 0%,
+            #111111 55%,
+            #080808 100%
+        );
+}
+
+.contenido-ultima {
+    width: min(850px, 90%);
+
+    position: relative;
+
+    z-index: 2;
+
+    margin: 0 auto;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+}
+
+.etiqueta-ultima {
+    font-size: 0.7rem;
+
+    letter-spacing: 6px;
+
+    color: #888;
+
+    margin-bottom: 10px;
+}
+
+.subtitulo-ultima {
+    font-size: 0.65rem;
+
+    letter-spacing: 3px;
+
+    color: #666;
+
+    margin-bottom: 35px;
+}
+
+
+/* =========================================
+   CARTA FINAL
+========================================= */
+
+.carta-ultima {
+    width: min(700px, 100%);
+
+    margin: 0 auto;
+
+    padding: 45px 55px;
+
+    /* COLOR DE CARTA */
+    background: #eeeeea;
+
+    color: #151515;
+
+    border:
+        1px solid
+        rgba(0,0,0,0.08);
+
+    box-shadow:
+        0 25px 70px
+        rgba(0,0,0,0.65);
+
+    text-align: center;
+
+    position: relative;
+
+    animation:
+        aparecerCarta 1.2s ease forwards;
+}
+
+
+/* =========================================
+   DETALLE SUPERIOR
+========================================= */
+
+.carta-ultima::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 3px;
+
+    background:
+        repeating-linear-gradient(
+            90deg,
+            #222 0,
+            #222 18px,
+            #eeeeea 18px,
+            #eeeeea 36px
+        );
+
+    opacity: 0.7;
+}
+
+
+/* =========================================
+   ENCABEZADO
+========================================= */
+
+.encabezado-ultima {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    color: #777;
+
+    font-family: monospace;
+
+    font-size: 0.65rem;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 20px;
+}
+
+.encabezado-ultima span:last-child {
+    font-size: 1.2rem;
+}
+
+.linea-carta-ultima {
+    width: 100%;
+
+    height: 1px;
+
+    background: #ccc;
+
+    margin:
+        20px 0 30px;
+}
+
+
+/* =========================================
+   TEXTO FINAL
+========================================= */
+
+.texto-ultima {
+    width: 100%;
+
+    margin:
+        0 auto 28px;
+
+    color: #222;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:
+        clamp(0.95rem, 2vw, 1.05rem);
+
+    line-height: 1.9;
+
+    text-align: center;
+}
+
+.destacado-ultima {
+    color: #111;
+
+    font-size:
+        clamp(1.05rem, 2.3vw, 1.25rem);
+
+    font-weight: bold;
+
+    line-height: 1.8;
+
+    margin:
+        40px auto;
+
+    text-align: center;
+}
+
+
+/* =========================================
+   FIRMA
+========================================= */
+
+.firma-ultima {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-top: 45px;
+
+    padding-top: 20px;
+
+    border-top:
+        1px solid #ccc;
+
+    color: #777;
+
+    font-family: monospace;
+
+    font-size: 0.6rem;
+
+    letter-spacing: 3px;
+}
+
+.firma-ultima strong {
+    color: #222;
+
+    font-size: 1.1rem;
+}
+
+
+/* =========================================
+   BOTÓN
+========================================= */
+
+#ir-meta {
+    margin-top: 35px;
+
+    padding:
+        14px 30px;
+
+    background:
+        rgba(0,0,0,0.25);
+
+    color: white;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.6);
+
+    font-size: 0.7rem;
+
+    letter-spacing: 3px;
+
+    cursor: pointer;
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+
+#ir-meta:hover {
+    background: white;
+
+    color: black;
+
+    transform:
+        translateY(-3px);
+}
+
+
+/* =========================================
+   CELULAR — ÚLTIMA VUELTA
+========================================= */
+
+@media (max-width: 600px) {
+
+    #ultima-vuelta {
+        padding:
+            45px 0 70px;
+    }
+
+    .contenido-ultima {
+        width: 90%;
+    }
+
+    .carta-ultima {
+        width: 100%;
+
+        padding:
+            35px 25px;
+    }
+
+    .texto-ultima {
+        font-size: 0.92rem;
+
+        line-height: 1.8;
+    }
+
+    .destacado-ultima {
+        font-size: 1rem;
+
+        margin:
+            35px auto;
+    }
+
+    .firma-ultima {
+        letter-spacing: 2px;
+    }
+}
+
+
+/* =========================================
+   LA META — REVELACIÓN
+========================================= */
+
+#meta {
+    position: relative;
+
+    min-height: 100vh;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    background: #050505;
+
+    overflow: hidden;
+}
+
+.meta-fondo {
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(255,255,255,0.08),
+            transparent 45%
+        );
+
+    pointer-events: none;
+}
+
+.contenido-meta {
+    position: relative;
+
+    z-index: 2;
+
+    width: min(850px, 90%);
+
+    padding: 70px 0;
+}
+
+.etiqueta-meta {
+    font-size: 0.7rem;
+
+    letter-spacing: 5px;
+
+    color: #999;
+
+    margin-bottom: 25px;
+}
+
+.contenido-meta h1 {
+    font-size:
+        clamp(2.2rem, 6vw, 5rem);
+
+    letter-spacing: 8px;
+
+    font-weight: 500;
+
+    margin: 0;
+}
+
+.linea-meta-final {
+    width: 60px;
+
+    height: 2px;
+
+    background: white;
+
+    margin:
+        30px auto;
+}
+
+.texto-meta {
+    color: #aaa;
+
+    font-size: 1rem;
+
+    line-height: 1.8;
+
+    max-width: 550px;
+
+    margin: 0 auto;
+}
+
+
+/* =========================================
+   REGALO
+========================================= */
+
+.regalo {
+    position: relative;
+
+    width: 280px;
+
+    height: 280px;
+
+    margin:
+        45px auto 35px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+}
+
+.regalo-luz {
+    position: absolute;
+
+    width: 220px;
+
+    height: 220px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255,255,255,0.08);
+
+    filter: blur(35px);
+
+    animation:
+        pulsoRegalo 2.5s ease-in-out infinite;
+}
+
+.caja-regalo {
+    position: relative;
+
+    z-index: 2;
+
+    width: 150px;
+
+    height: 100px;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.3);
+
+    background:
+        linear-gradient(
+            145deg,
+            #171717,
+            #090909
+        );
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 3rem;
+
+    box-shadow:
+        0 20px 60px
+        rgba(0,0,0,0.7);
+}
+
+.texto-regalo {
+    position: relative;
+
+    z-index: 2;
+
+    margin-top: 20px;
+
+    font-size: 0.65rem;
+
+    letter-spacing: 5px;
+
+    color: #888;
+}
+
+.mensaje-meta {
+    max-width: 600px;
+
+    margin: 0 auto;
+
+    color: #ddd;
+
+    font-size: 1rem;
+
+    line-height: 1.9;
+}
+
+
+/* =========================================
+   BOTÓN META
+========================================= */
+
+#ir-final {
+    margin-top: 40px;
+
+    padding:
+        14px 28px;
+
+    background: transparent;
+
+    color: white;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.4);
+
+    font-size: 0.7rem;
+
+    letter-spacing: 3px;
+
+    cursor: pointer;
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+
+#ir-final:hover {
+    background: white;
+
+    color: black;
+
+    transform:
+        translateY(-3px);
+}
+
+
+/* =========================================
+   ANIMACIÓN REGALO
+========================================= */
+
+@keyframes pulsoRegalo {
+
+    0%,
+    100% {
+        transform: scale(0.9);
+
+        opacity: 0.5;
+    }
+
+    50% {
+        transform: scale(1.1);
+
+        opacity: 0.9;
+    }
+}
+
+
+/* =========================================
+   FINAL — BANDERA A CUADROS
+========================================= */
+
+#final {
+    position: relative;
+
+    min-height: 100vh;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #151515 0%,
+            #060606 60%,
+            #000 100%
+        );
+
+    overflow: hidden;
+}
+
+#final::before,
+#final::after {
+    content: "";
+
+    position: absolute;
+
+    width: 100%;
+
+    height: 45px;
+
+    left: 0;
+
+    background-size: 45px 45px;
+
+    background-image:
+        linear-gradient(
+            45deg,
+            #151515 25%,
+            transparent 25%
+        ),
+        linear-gradient(
+            -45deg,
+            #151515 25%,
+            transparent 25%
+        ),
+        linear-gradient(
+            45deg,
+            transparent 75%,
+            #151515 75%
+        ),
+        linear-gradient(
+            -45deg,
+            transparent 75%,
+            #151515 75%
+        );
+
+    opacity: 0.5;
+}
+
+#final::before {
+    top: 0;
+}
+
+#final::after {
+    bottom: 0;
+}
+
+.contenido-final {
+    width: min(750px, 88%);
+
+    position: relative;
+
+    z-index: 2;
+}
+
+.bandera-final {
+    font-size: 2.5rem;
+
+    margin-bottom: 40px;
+
+    animation:
+        aparecerFinal 1s ease forwards;
+}
+
+.frase-final {
+    font-size:
+        clamp(1.8rem, 5vw, 3.5rem);
+
+    letter-spacing: 4px;
+
+    font-weight: 400;
+
+    margin: 0;
+
+    opacity: 0;
+
+    animation:
+        aparecerFinal 1s ease 0.5s forwards;
+}
+
+.frase-final.grande {
+    font-size:
+        clamp(2.4rem, 7vw, 5rem);
+
+    font-weight: 500;
+
+    margin-top: 8px;
+
+    animation-delay: 1s;
+}
+
+.linea-final {
+    width: 50px;
+
+    height: 1px;
+
+    background:
+        rgba(255,255,255,0.6);
+
+    margin:
+        35px auto;
+
+    opacity: 0;
+
+    animation:
+        aparecerFinal 1s ease 1.5s forwards;
+}
+
+.texto-final {
+    color: #aaa;
+
+    font-size: 1rem;
+
+    line-height: 1.9;
+
+    max-width: 600px;
+
+    margin:
+        0 auto 25px;
+
+    opacity: 0;
+
+    animation:
+        aparecerFinal 1s ease 1.8s forwards;
+}
+
+.texto-final:nth-of-type(2) {
+    animation-delay: 2.2s;
+}
+
+.cierre-final {
+    margin-top: 50px;
+
+    color: white;
+
+    font-size: 1.1rem;
+
+    letter-spacing: 2px;
+
+    opacity: 0;
+
+    animation:
+        aparecerFinal 1s ease 2.7s forwards;
+}
+
+.firma-final {
+    margin-top: 45px;
+
+    color: #555;
+
+    font-size: 0.65rem;
+
+    letter-spacing: 4px;
+
+    opacity: 0;
+
+    animation:
+        aparecerFinal 1s ease 3.2s forwards;
+}
+
+
+/* =========================================
+   ANIMACIÓN FINAL
+========================================= */
+
+@keyframes aparecerFinal {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+/* =========================================
+   RESPONSIVE — ÚLTIMAS PANTALLAS
+========================================= */
+
+@media (max-width: 600px) {
+
+    .contenido-ultima,
+    .contenido-meta,
+    .contenido-final {
+        width: 88%;
+    }
+
+    .contenido-ultima {
+        padding:
+            55px 0;
+    }
+
+    .texto-cinematico {
+        font-size: 0.95rem;
+
+        line-height: 1.8;
+    }
+
+    .texto-cinematico p {
+        margin-bottom: 25px;
+    }
+
+    .grande-ultima {
+        font-size: 1.3rem;
+    }
+
+    .contenido-meta h1 {
+        letter-spacing: 5px;
+    }
+
+    .regalo {
+        width: 230px;
+
+        height: 240px;
+    }
+
+    .caja-regalo {
+        width: 130px;
+
+        height: 90px;
+
+        font-size: 2.5rem;
+    }
+
+    .frase-final {
+        letter-spacing: 2px;
+    }
+
+    .frase-final.grande {
+        font-size: 2.5rem;
+    }
+
+    .texto-final {
+        font-size: 0.9rem;
+    }
+}
